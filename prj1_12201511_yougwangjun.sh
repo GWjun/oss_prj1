@@ -17,15 +17,19 @@ echo "------------------------------"
 
 while True
 do
-    read -p "Enter your choice [ 1-9 ] " choice
-
+    read -p "Enter your choice [ 1-9 ] " choice; echo ""
     case $choice in
     9) echo "Bye!"; break;;
     1)
-        read -p "Please enter 'movie id' (1~1682): " movie_id
-        cat $1 | awk -F\| -v id=$movie_id '$1==id {print }'
+        read -p "Please enter 'movie id' (1~1682): " movie_id; echo ""
+        cat $1 | awk -F\| -v id=$movie_id '$1==id {print}'; echo ""
         ;;
-    2);;
+    2)
+        read -p "Do you want to get the data of ‘action’ genre movies from 'u.item’?(y/n): " is_on; echo ""
+        if [ $is_on == 'y' ]; then
+            cat $1 | awk -F\| '$7==1 {print $1, $2}' | head -n 10
+        fi; echo ""
+        ;;
     3);;
     4);;
     5);;
