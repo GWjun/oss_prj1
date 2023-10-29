@@ -88,7 +88,7 @@ do
             echo "$arr" | awk -F\| '{sum[$1]+=$2; count[$1]++}END{for (ind in sum) if (ind > 0) {print ind, sum[ind]/count[ind]}}'
         fi; echo
         ;;
-    9) echo "Bye!"; break;;
+    9) echo "Bye!"; break ;;
     *) echo "bad choice" ;;
     esac
 done
